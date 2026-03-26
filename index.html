@@ -106,6 +106,38 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+
+    /* Адаптивна сітка для блоків мультимедіа */
+    .media-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+      margin-bottom: 48px;
+    }
+
+    @media (max-width: 767px) {
+      .media-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      /* Відео контейнер на мобільному — повна ширина */
+      .media-video-wrap {
+        padding: 0 0 16px 0;
+      }
+
+      /* Заголовок секції зменшуємо */
+      .media-section-title {
+        font-size: 1.5rem !important;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .media-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
   </style>
 </head>
 
@@ -486,39 +518,7 @@
                         </p>
                       </div>
                     </div>
-                    <div class="group">
-                      <div
-                        class="h-full p-6 rounded-2xl backdrop-blur-lg bg-white/60 border border-white/20 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-                        <svg
-                          class="w-14 h-14 rounded-xl mb-4 group-hover:scale-110 transition-transform flex items-center justify-center"
-                          fill="none" height="56" viewbox="0 0 56 56" width="56" xmlns="http://www.w3.org/2000/svg">
-                          <rect fill="url(#grad5b)" height="56" rx="12" width="56">
-                          </rect>
-                          <defs>
-                            <lineargradient id="grad5b" x1="0%" x2="100%" y1="0%" y2="100%">
-                              <stop offset="0%" stop-color="#0ea5e9">
-                              </stop>
-                              <stop offset="100%" stop-color="#0284c7">
-                              </stop>
-                            </lineargradient>
-                          </defs>
-                          <g transform="translate(10,10)">
-                            <svg fill="none" height="34" stroke="white" stroke-linecap="round" stroke-linejoin="round"
-                              stroke-width="2" viewbox="0 0 24 24" width="34" xmlns="http://www.w3.org/2000/svg">
-                              <path
-                                d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20">
-                              </path>
-                            </svg>
-                          </g>
-                        </svg>
-                        <h3 class="text-xl font-bold mb-2 text-gray-900">
-                          Посилання на джерела
-                        </h3>
-                        <p class="text-gray-600">
-                          До кожного питання додані посилання на наукові та медичні джерела
-                        </p>
-                      </div>
-                    </div>
+
 
                   </div>
                   <div
@@ -1097,8 +1097,7 @@
                       </p>
                     </div>
                     <!-- Три блоки: відео, аудіо, флеш-картки — UI превью (inline styles) -->
-                    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:40px;"
-                      class="mb-12">
+                    <div class="media-cards-grid">
 
                       <!-- ВІДЕО-ЛЕКЦІЯ -->
                       <div
@@ -1231,7 +1230,7 @@
 
                     </div>
                     <div class="flex justify-center mt-10">
-                      <div class="w-full max-w-2xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden">
+                      <div class="w-full max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden">
                         <div
                           class="aspect-video bg-gradient-to-br from-blue-500 to-purple-600 relative overflow-hidden">
                           <!-- Відео: замініть src на шлях до вашого відео файлу або URL -->
@@ -1248,37 +1247,6 @@
                   </div>
 
 
-                  <div>
-                    <div class="text-center mb-12">
-                      <h3 class="text-3xl lg:text-4xl font-bold mb-4">
-                        Флеш-картки для швидкого повторення
-                      </h3>
-                      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                        Ефективний спосіб закріплення знань
-                      </p>
-                    </div>
-                    <div class="flex justify-center">
-                      <div class="w-full max-w-md mx-auto perspective-1000">
-                        <div
-                          class="bg-white rounded-2xl shadow-2xl p-8 min-h-[300px] flex flex-col justify-center items-center text-center">
-                          <p class="text-xs text-gray-500 mb-4">
-                            Картка 47/120
-                          </p>
-                          <h3 class="text-2xl font-bold mb-6">
-                            Що таке синусовий вузол?
-                          </h3>
-                          <button
-                            class="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
-                            Показати
-                            відповідь
-                          </button>
-                          <p class="text-xs text-gray-500 mt-6">
-                            Клікніть для перегортання
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
 
                 </div>
               </section>
@@ -2554,12 +2522,7 @@
                         </span>
                       </div>
                     </div>
-                    <p class="mt-8 text-gray-600">
-                      Потрібна допомога з вибором плану?
-                      <a class="text-blue-600 hover:text-blue-700 font-medium" href="#footer">
-                        Зв'яжіться з нами
-                      </a>
-                    </p>
+
                   </div>
                 </div>
               </section>
